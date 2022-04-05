@@ -24,3 +24,44 @@
 // 5. Game over once all questions have been answered or time elapses
 // 6. save user score
 
+
+
+var startButton = document.getElementById("startButton");
+var questionContainerElement = document.getElementById("questionContainer")
+startButton.addEventListener('click', startQuiz)
+let randomizeQuestions, currentQuestion
+var questionElement = document.getElementById('question')
+var answerButtons = document.getElementById('answerButtons')
+var answer = document.getElementById('answer')
+
+function startQuiz() {
+    console.log('Started')
+    startButton.classList.add('hidden')
+    randomizeQuestions = questionsBank.sort(() => Math.random() - .5)
+    currentQuestion=0
+    questionContainerElement.classList.remove('hidden')
+    nextQuestion();
+}
+
+
+function nextQuestion() {
+    showQuestion(randomizeQuestions[currentQuestion])
+}
+
+function showQuestion(question) {
+    questionElement.innerText = question.question
+    
+    }
+
+
+
+var questionsBank= [
+    {
+        question: "Which country invented ice cream?",
+        answer: [
+            {text: "China", correct: true},
+            {test: "Russia", correct: false}
+        ]
+        
+    }
+]
