@@ -26,42 +26,82 @@
 
 
 
-var startButton = document.getElementById("startButton");
-var questionContainerElement = document.getElementById("questionContainer")
-startButton.addEventListener('click', startQuiz)
-let randomizeQuestions, currentQuestion
-var questionElement = document.getElementById('question')
-var answerButtons = document.getElementById('answerButtons')
-var answer = document.getElementById('answer')
+var questionContainerElement = document.getElementById("questionContainer");
 
-function startQuiz() {
-    console.log('Started')
-    startButton.classList.add('hidden')
-    randomizeQuestions = questionsBank.sort(() => Math.random() - .5)
-    currentQuestion=0
-    questionContainerElement.classList.remove('hidden')
-    nextQuestion();
-}
+let randomizeQuestions, currentQuestion;
+var questionElement = document.getElementById('question');
+var answerButtons = document.getElementById('answerButtons');
+var answer = document.getElementById('answer');
 
 
-function nextQuestion() {
-    showQuestion(randomizeQuestions[currentQuestion])
-}
 
-function showQuestion(question) {
-    questionElement.innerText = question.question
     
-    }
+const startButton = document.getElementById('startButton');
+var currentIndex = 0;
+var timerId;
+var time = 60;
+var timerEl = document.getElementById("time");
+
+function start() {
+    timerId = setInterval(clockTick, 1000);
+    timerEl.textContent = time;
+    console.log(timerId)
+}
+
+startButton.onclick = start()
+
+function clockTick() {
+    time--;
+    timerEl.textContent = time;
+}
+
+
+// function  startQuiz() {
+//     startButton.classList.add('hidden')
+//     randomizeQuestions = questionsBank.sort(() => Math.random() - .5)
+//     currentQuestion=0
+//     questionContainerElement.classList.remove('hidden')
+//     Question();
+// }
+
+
+// function Question() {
+//     showQuestion(randomizeQuestions[currentQuestion])
+// }
+
+// function showQuestion(question) {
+//     questionElement.innerText = question.question
+    
+// }
 
 
 
-var questionsBank= [
-    {
-        question: "Which country invented ice cream?",
-        answer: [
-            {text: "China", correct: true},
-            {test: "Russia", correct: false}
-        ]
-        
-    }
-]
+
+
+// if (time > 0 ) {
+//     // Set the `textContent` of `timerEl` to show the remaining seconds
+//     timeEL.textContent = time + ' seconds remaining';
+//     // Decrement time by 1
+//     time--
+//     console.log(time);
+  
+//   }
+// }, 500);
+// }
+
+
+
+// var questionsBank= [
+//     {
+//         question: "Which country invented ice cream?",
+//         answer: [
+//             {text: "China", correct: true},
+//             {test: "Russia", correct: false}
+//         ],
+//         question: "What is the body's largest organ?",
+//         answer: [
+//             {text: "Skin", correct: true},
+//             {text: "Brain", correct: true}
+//         ]
+//     }
+// ]
