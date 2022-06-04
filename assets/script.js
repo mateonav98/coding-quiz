@@ -24,7 +24,33 @@
 // 5. Game over once all questions have been answered or time elapses
 // 6. save user score
 
-
+var questionsBank= [
+    {
+        question: "What does HTML stand for",
+        choices: [ "Hit the MotherLoad", "Hypertext Markup Language", "Hello To My Love", "Hamburger, Tomato, Lettuce, Mayo"],
+        answer: "Hypertext Markup Language"
+    },
+    {
+        question: "What year was javascript?",
+        choices: ["1998", "1994", "1995", "1990"],
+        answer:  "1995"
+    },
+    {
+        question: "_______ is the process of finding errors and fixing them within a program",
+        choices: ["Debugging", "Bugs", "Scanning", "Fixing"],
+        answer: "Debugging"
+    },
+    {
+        question: "What is CSS short for",
+        choices: ["Content Style System", "Cross Site Scripting","Customer Support Service", "Cascading Style Sheet"],
+        answer: "Cascading Style Sheet"
+    },
+    {
+        question: "Which is a boolean value",
+        choices: ["True and False", "for and if", "Object or Array", "String or Value"],
+        answer: "True and False"
+    },
+]
 
 
 var questionContainerElement = document.getElementById("questionContainer")
@@ -33,13 +59,13 @@ let randomizeQuestions, currentQuestion
 var questionElement = document.getElementById('question')
 var answerButtons = document.getElementById('answerButtons')
 var answer = document.getElementById('answer')
-
-
+var timerEl = document.getElementById("time");
 
 var currentIndex = 0;
 var timerId;
-var time = 60;
-var timerEl = document.getElementById("time");
+var startTime = 60;
+var penaltyTime = 10;
+
 
 function start() {
     timerId = setInterval(clockTick, 1000);
@@ -76,30 +102,3 @@ function showQuestion(question) {
 
 
 
-var questionsBank= [
-    {
-        question: "What does HTML stand for",
-        choices: [ "Hit the MotherLoad", "Hypertext Markup Language", "Hello To My Love", "Hamburger, Tomato, Lettuce, Mayo"],
-        answer: "Hypertext Markup Language"
-    },
-    {
-        question: "What year was javascript?",
-        choices: ["1998", "1994", "1995", "1990"],
-        answer:  "1995"
-    },
-    {
-        question: "_______ is the process of finding errors and fixing them within a program",
-        choices: ["Debugging", "Bugs", "Scanning", "Fixing"],
-        answer: "Debugging"
-    },
-    {
-        question: "What is CSS short for",
-        choices: ["Content Style System", "Cross Site Scripting","Customer Support Service", "Cascading Style Sheet"],
-        answer: "Cascading Style Sheet"
-    },
-    {
-        question: "Which is a boolean value",
-        choices: ["True and False", "for and if", "Object or Array", "String or Value"],
-        answer: "True and False"
-    },
-]
