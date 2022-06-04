@@ -78,9 +78,28 @@ function showQuestion(question) {
 
 var questionsBank= [
     {
-        question: "Which country invented ice cream?",
-        answer: [
-            {text: "China", correct: true},
-            {test: "Russia", correct: false}
-        ]
- }]
+        question: "What does HTML stand for",
+        choices: [ "Hit the MotherLoad", "Hypertext Markup Language", "Hello To My Love", "Hamburger, Tomato, Lettuce, Mayo"],
+        answer: "Hypertext Markup Language"
+    },
+    {
+        question: "What year was javascript?",
+        choices: ["1998", "1994", "1995", "1990"],
+        answer:  "1995"
+    },
+    {
+        question: "_______ is the process of finding errors and fixing them within a program",
+        choices: ["Debugging", "Bugs", "Scanning", "Fixing"],
+        answer: "Debugging"
+    },
+    {
+        question: "What is CSS short for",
+        choices: ["Content Style System", "Cross Site Scripting","Customer Support Service", "Cascading Style Sheet"],
+        answer: "Cascading Style Sheet"
+    },
+    {
+        question: "Which is a boolean value",
+        choices: ["True and False", "for and if", "Object or Array", "String or Value"],
+        answer: "True and False"
+    },
+]
