@@ -26,7 +26,7 @@
 
 var questionsBank= [
     {
-        question: "What does HTML stand for",
+        question: "What does HTML stand for?",
         choices: [ "Hit the MotherLoad", "Hypertext Markup Language", "Hello To My Love", "Hamburger, Tomato, Lettuce, Mayo"],
         answer: "Hypertext Markup Language"
     },
@@ -41,12 +41,12 @@ var questionsBank= [
         answer: "Debugging"
     },
     {
-        question: "What is CSS short for",
+        question: "What is CSS short for?",
         choices: ["Content Style System", "Cross Site Scripting","Customer Support Service", "Cascading Style Sheet"],
         answer: "Cascading Style Sheet"
     },
     {
-        question: "Which is a boolean value",
+        question: "Which is a boolean value?",
         choices: ["True and False", "for and if", "Object or Array", "String or Value"],
         answer: "True and False"
     },
@@ -58,7 +58,7 @@ var questionContainerElement = document.getElementById("questionContainer")
 let randomizeQuestions, currentQuestion
 var questionElement = document.getElementById('question')
 var answerButtons = document.getElementById('answerButtons')
-var answer = document.getElementById('answer')
+var answerChoices = document.getElementById('answerChoices')
 var timerEl = document.getElementById("timer");
 
 var currentIndex = 0;
@@ -68,6 +68,7 @@ var startTime = 60;
 var penaltyTime = 10;
 var score = 0;
 var questionNumber = 0
+var answerList = document.createElement("ol");
 
 startButton.addEventListener('click', () => {
     startQuiz();
@@ -106,9 +107,6 @@ function clockTick() {
 
 
 
-
-
-
 function nextQuestion() {
     showQuestion(randomizeQuestions[currentQuestion])
 }
@@ -116,7 +114,17 @@ function nextQuestion() {
 function showQuestion(question) {
     questionElement.innerText = question.question
 
-    }
+    var options = question.choices
+    options.forEach(function(newEl) {
+        var li = document.createElement("li");
+        li.textContent = newEl;
+        questionElement.appendChild(answerList);
+        answerList.appendChild(li);
+        // li.addEventListener(click, (compareAnswer))
+    })
+};
 
+function compareAnswer() {
+};
 
 // gameOver();
