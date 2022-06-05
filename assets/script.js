@@ -126,24 +126,26 @@ function showQuestion(question) {
 
 function compareAnswer(event) {
     var selection = event.target;
+    console.log('clicked')
     if (selection.matches("li")) {
         var newEL = document.createElement('div');
         newEL.setAttribute('id', "newEl");
         if (selection.textContent == questionsBank[questionNumber].answer) {
             score++;
+            console.log(score)
             newEL.textContent = "Correct!";
         } else {
             startTime = startTime - penaltyTime;
             newEL.textContent = "Incorrect!"
         }
     }
-    questionNumber++;
-    if (questionNumber >= questionsBank.length) {
-        newEL.textContent = "Game over! You scored " + score + " out of " + questionsBank.length
-    }
-    else {
-        showQuestion(questionNumber)
-    }
+    // questionNumber++;
+    // if (questionNumber >= questionsBank.length) {
+    //     newEL.textContent = "Game over! You scored " + score + " out of " + questionsBank.length
+    // }
+    // else {
+    //     showQuestion(questionNumber)
+    // }
 };
 
 // gameOver();
