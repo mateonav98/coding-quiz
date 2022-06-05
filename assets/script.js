@@ -65,7 +65,8 @@ var currentIndex = 0;
 var timerId;
 var startTime = 60;
 var penaltyTime = 10;
-
+var score = 0;
+var questionNumber = 0
 
 function start() {
     timerId = setInterval(clockTick, 1000);
