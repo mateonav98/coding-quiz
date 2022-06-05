@@ -113,7 +113,6 @@ function nextQuestion() {
 
 function showQuestion(question) {
     questionElement.innerText = question.question
-
     var options = question.choices
     options.forEach(function(newEl) {
         var li = document.createElement("li");
@@ -139,13 +138,16 @@ function compareAnswer(event) {
             newEL.textContent = "Incorrect!"
         }
     }
-    // questionNumber++;
-    // if (questionNumber >= questionsBank.length) {
-    //     newEL.textContent = "Game over! You scored " + score + " out of " + questionsBank.length
-    // }
+    questionNumber++;
+    console.log(questionNumber)
+    if (questionNumber >= questionsBank.length) {
+        newEL.textContent = "Game over! You scored " + score + " out of " + questionsBank.length
+    }
     // else {
-    //     showQuestion(questionNumber)
+    
+    //     showQuestion(currentQuestion)
     // }
+    questionElement.appendChild(newEL)
 };
 
 // gameOver();
