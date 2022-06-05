@@ -100,7 +100,7 @@ function clockTick() {
             if (startTime <= 0) {
                 clearInterval(timeInterval);
                 // gameOver();
-                textLeft.textContent = "Out of Time!"
+                timerEl.textContent = "Out of Time!"
             }
         }
 ;
@@ -120,11 +120,30 @@ function showQuestion(question) {
         li.textContent = newEl;
         questionElement.appendChild(answerList);
         answerList.appendChild(li);
-        // li.addEventListener(click, (compareAnswer))
+        li.addEventListener("click", (compareAnswer))
     })
 };
 
-function compareAnswer() {
+function compareAnswer(event) {
+    var selection = event.target;
+    if (selection.matches("li")) {
+        var newEL = document.createElement('div');
+        newEL.setAttribute('id', "newEl");
+        if (selection.textContent == questionsBank[questionNumber].answer) {
+            score++;
+            newEL.textContent = "Correct!";
+        } else {
+            startTime = startTime - penaltyTime;
+            newEL.textContent = "Incorrect!"
+        }
+    }
+    questionNumber++;
+    if (questionNumber >= questionsBank.length) {
+        newEL.textContent = "Game over! You scored " + score + " out of " + questionsBank.length
+    }
+    else {
+        showQuestion(questionNumber)
+    }
 };
 
 // gameOver();
