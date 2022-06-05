@@ -142,6 +142,7 @@ function compareAnswer(event) {
     console.log(questionNumber)
     if (questionNumber >= questionsBank.length) {
         newEL.textContent = "Game over! You scored " + score + " out of " + questionsBank.length
+        clearInterval(timeInterval)
     }
     else {
     
@@ -150,4 +151,4 @@ function compareAnswer(event) {
     questionElement.appendChild(newEL)
 };
 
-// gameOver();
+
