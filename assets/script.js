@@ -143,10 +143,10 @@ function compareAnswer(event) {
     if (questionNumber >= questionsBank.length) {
         newEL.textContent = "Game over! You scored " + score + " out of " + questionsBank.length
     }
-    // else {
+    else {
     
-    //     showQuestion(currentQuestion)
-    // }
+        showQuestion(randomizeQuestions[questionNumber])
+    }
     questionElement.appendChild(newEL)
 };
 
