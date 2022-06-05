@@ -54,33 +54,25 @@ var questionsBank= [
 
 
 var questionContainerElement = document.getElementById("questionContainer")
-startButton.addEventListener('click', startQuiz)
+
 let randomizeQuestions, currentQuestion
 var questionElement = document.getElementById('question')
 var answerButtons = document.getElementById('answerButtons')
 var answer = document.getElementById('answer')
-var timerEl = document.getElementById("time");
+var timerEl = document.getElementById("timer");
 
 var currentIndex = 0;
 var timerId;
+var timeInterval=0;
 var startTime = 60;
 var penaltyTime = 10;
 var score = 0;
 var questionNumber = 0
 
-function start() {
-    timerId = setInterval(clockTick, 1000);
-    timerEl.textContent = time;
-    console.log(timerId)
-}
-
-startButton.onclick = start()
-
-function clockTick() {
-    time--;
-    timerEl.textContent = time;
-}
-
+startButton.addEventListener('click', () => {
+    startQuiz();
+    startTimer();
+})
 
 function startQuiz() {
     console.log('Started')
@@ -90,6 +82,31 @@ function startQuiz() {
     questionContainerElement.classList.remove('hidden')
     nextQuestion();
 }
+
+function startTimer() {
+    if (timeInterval === 0) {
+    timeInterval = setInterval(clockTick, 1000);
+    console.log(timeInterval)
+    }
+}
+
+
+
+function clockTick() {
+            startTime--;
+            timerEl.textContent = startTime + " seconds remaining";
+
+            if (startTime <= 0) {
+                clearInterval(timeInterval);
+                // gameOver();
+                textLeft.textContent = "Out of Time!"
+            }
+        }
+;
+
+
+
+
 
 
 function nextQuestion() {
@@ -102,4 +119,4 @@ function showQuestion(question) {
     }
 
 
-
+// gameOver();
